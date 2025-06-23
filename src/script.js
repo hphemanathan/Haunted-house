@@ -30,6 +30,8 @@ floor.rotation.x = - Math.PI / 2
 
 scene.add(floor)
 
+
+
 // House group
 
 const house = new THREE.Group()
@@ -43,6 +45,39 @@ const walls = new THREE.Mesh(
 walls.position.y += 2.5 / 2
 house.add(walls)
 
+// Ceiling 
+
+const roof  = new THREE.Mesh (
+    new THREE.ConeGeometry(3.5, 1.5, 4),
+    new THREE.MeshStandardMaterial()
+)
+
+roof.position.y = 2.5 + 0.75
+roof.rotation.y = Math.PI / 4
+house.add(roof)
+
+// Door
+
+const door = new THREE.Mesh (
+    new THREE.PlaneGeometry(2.2, 2.2),
+    new THREE.MeshStandardMaterial({color : 'red'})
+)
+
+door.position.y = 1
+door.position.z = 2+ 0.001
+house.add(door)
+
+// Bushes
+
+const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
+const bushMaterial = new THREE.MeshStandardMaterial()
+
+const bush1 = new THREE.Mesh(bushGeometry, bushMaterial)
+// bush1.position.x = 0.8
+bush1.scale.set(0.5, 0.5, 0.5)
+bush1.position.set(0.8, 0.2, 2.2)
+
+house.add (bush1)
 /**
  * Lights
  */
