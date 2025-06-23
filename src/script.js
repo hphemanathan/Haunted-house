@@ -78,6 +78,8 @@ bush1.scale.set(0.5, 0.5, 0.5)
 bush1.position.set(0.8, 0.2, 2.2)
 
 house.add (bush1)
+
+const bush2 = new THREE.Mesh(bushGeometry, bushMaterial);
 /**
  * Lights
  */
