@@ -72,16 +72,51 @@ house.add(door)
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
 const bushMaterial = new THREE.MeshStandardMaterial()
 
-const bush1 = new THREE.Mesh(bushGeometry, bushMaterial)
-// bush1.position.x = 0.8
-bush1.scale.set(0.5, 0.5, 0.5)
-bush1.position.set(0.8, 0.2, 2.2)
-
-house.add (bush1)
+const bush1 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush1.scale.set(0.5, 0.5, 0.5);
+bush1.position.set(0.8, 0.2, 2.2);
 
 const bush2 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush2.scale.set(0.25, 0.25, 0.25);
+bush2.position.set(1.4, 0.1, 2.1);
 
-house.add(bush2);
+const bush3 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush3.scale.set(0.4, 0.4, 0.4);
+bush3.position.set(-0.8, 0.1, 2.2);
+
+const bush4 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush4.scale.set(0.15, 0.15, 0.15);
+bush4.position.set(-1, 0.05, 2.6);
+
+house.add (bush1, bush2, bush3, bush4)
+
+
+// Graves 
+
+const graveGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.2)
+const graveMaterial = new THREE.MeshStandardMaterial()
+
+const graves = new THREE.Group ()
+scene.add(graves)
+
+for (let i=0; i = 30; i++) {
+
+    // 
+    const angle = Math.random( ) * Math.PI * 2
+    const x = Math.sin(angle)
+    const z = Math.cos(angle)
+    // Mesh
+
+    const grave = new THREE.Mesh(graveGeometry, graveMaterial)
+
+    // Add to Graves group
+
+    graves.add(grave)
+}
+
+
+
+
 /**
  * Lights
  */
