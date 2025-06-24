@@ -101,7 +101,8 @@ scene.add(graves)
 
 for (let i=0; i = 30; i++) {
 
-    //  grave position
+    //  grave random positions
+
     const angle = Math.random( ) * Math.PI * 2
     const x = Math.sin(angle)
     const z = Math.cos(angle)
