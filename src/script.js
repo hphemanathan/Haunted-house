@@ -99,19 +99,23 @@ const graveMaterial = new THREE.MeshStandardMaterial()
 const graves = new THREE.Group ()
 scene.add(graves)
 
-for (let i=0; i = 30; i++) {
+ for (let i=0; i <30; i++) {
 
-    //  grave position
+//     //  grave position
 
     const angle = Math.random( ) * Math.PI * 2
-    const x = Math.sin(angle)
-    const z = Math.cos(angle)
+    const radius = 3 + Math.random() * 4
+    const x = Math.sin(angle) * radius
+    const z = Math.cos(angle) * radius
 
-    // Mesh
+//     // Mesh
 
     const grave = new THREE.Mesh(graveGeometry, graveMaterial)
+    grave.position.x = x
+    grave.position.y = Math.random() * 0.4
+    grave.position.z = z
 
-    // Add to Graves group
+//     // Add to Graves group
 
     graves.add(grave)
 }
