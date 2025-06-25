@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { Timer } from 'three/addons/misc/Timer.js'
 import GUI from 'lil-gui'
+import { texture } from 'three/tsl'
 
 /**
  * Base
@@ -15,6 +16,17 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
+
+/**
+ * Textures
+ */
+
+const textureLoader = new THREE.TextureLoader()
+
+// Floor
+
+const floorAlphaTexture = textureLoader.load('./floor/alpha.jpg')
+
 /**
  * House
  */
@@ -23,7 +35,12 @@ const scene = new THREE.Scene()
 
 const floor = new THREE.Mesh(
    new THREE.PlaneGeometry(20,20),
-   new THREE.MeshStandardMaterial
+   new THREE.MeshStandardMaterial (
+    {
+        alphaMap : floorAlphaTexture,
+        transparent: true
+    }
+   )
 )
 
 floor.rotation.x = - Math.PI / 2
@@ -114,6 +131,10 @@ scene.add(graves)
     grave.position.x = x
     grave.position.y = Math.random() * 0.4
     grave.position.z = z
+
+    grave.rotation.x = (Math.random() - 0.5) * 0.4
+    grave.rotation.y = (Math.random() - 0.5) * 0.4
+    grave.rotation.z = (Math.random() - 0.5) * 0.4;
 
 //     // Add to Graves group
 
